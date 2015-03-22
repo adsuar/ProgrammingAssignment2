@@ -1,7 +1,19 @@
-## Put comments here that give an overall description of what your
-## functions do
+# The current code implements two different the following functions:
+# makeCacheMatrix: Creates a special "matrix" creates a set of functions
+#                  for the management of a matrix and its inverse.
+# cacheSolve: Implements the inverse of a matrix.
+#
+# While the execution of the makeCacheMatrix does not have any special
+# requirement, if you want a successfull calculation of the inverse of the
+# matrix, then the matrix will have to meet the following requirements:
+# - the object has to be a matrix
+# - the matrix has to be square
+# - the dimensions of the matrix have to be at least 1x1, not lower
+# - the determinant of the matrix has to be different from 0
+#
+# Please find below more comments that will help you to understand the
+# workflow of both functions.
 
-## Write a short comment describing this function
 makeCacheMatrix <- function(x = matrix()) {
   # Creates a special "matrix" with a list to the following functions:
   #  * set the value of the matrix
@@ -45,8 +57,6 @@ makeCacheMatrix <- function(x = matrix()) {
        getsolve = getsolve)
 }
 
-
-## Write a short comment describing this function
 cacheSolve <- function(x, ...) {
   # Calculates the inverse of the matrix if it has not been calculated yet.
   #
