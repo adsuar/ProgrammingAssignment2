@@ -41,7 +41,7 @@ makeCacheMatrix <- function(x = matrix()) {
     if(!identical(x,y)) { 
       # We set the matrix
       x <<- y
-      # We initialize the inverse since the matrix is new
+      # We flush the cached inverse since the matrix is new
       s <<- NULL
     }
   }
