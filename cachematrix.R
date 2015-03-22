@@ -66,9 +66,22 @@ cacheSolve <- function(x, ...) {
     message("getting cached data")
     return(s)
   }
-  # If it's different from null, we get the matrix and calculate the inverse.
+  
+  # If it's null, it means that it hasn't been calculated already, or we can calculate
+  # it.
   data <- x$get()
-  s <- solve(data, ...)
-  x$setsolve(s)
+  classdata <- class(data)
+  sizex <- dim(data)[1]
+  sizey <- dim(data)[2]
+  
+  # If it's an squared matrix, then we can get the inverse.
+  if(classdata == "matrix" && sizex > 0 && sizex == sizey && det(data) != 0) {
+    s <- solve(data, ...)
+    x$setsolve(s)
+  } else {
+    message("data is not a matrix, is not square or its determinant is 0")
+  }
+  
+  # The value of the inverse is calculated.
   s
 }
